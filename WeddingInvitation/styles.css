@@ -1,0 +1,935 @@
+
+    /* Color Variables */
+    :root {
+      --primary: #A7C4D2;  /* Dusty blue */
+      --secondary: #E8EEF1; /* Light gray-blue */
+      --accent: #8BA9B9;   /* Deeper dusty blue */
+      --white: #FFFFFF;
+      --light-gray: #8f8f8f;
+      --text-color: #4A6573; /* Muted blue-gray for text */
+      --header-text: #2C3E50;
+      --border-color: rgba(167, 196, 210, 0.6); /* Transparent dusty blue */
+      
+      /* Background Colors */
+      --body-bg: var(--light-gray);
+      --header-bg: var(--primary);
+      --section-bg: var(--light-gray);
+      --footer-bg: var(--primary);
+      --portfolio-bg: var(--light-gray);
+      
+      /* Text Colors */
+      --heading-color: var(--header-text);
+      --paragraph-color: var(--white);
+      --link-color: var(--white);
+      
+      /* Overlay Colors */
+      --overlay-start: rgba(26, 44, 61, 0.85);
+      --overlay-end: rgba(26, 44, 61, 0.7);
+    }
+
+    @import url('https://fonts.googleapis.com/css2?family=Marcellus+SC&family=Euphoria+Script&display=swap');
+
+
+        /* Portfolio Modal Styles */
+        .portfolio-modal .modal-dialog {
+  margin: 10rem; /* Adds 10rem space outside the modal */
+  max-width: calc(100% - 20rem); /* Adjusts width to account for the margin */
+  height: calc(100% - 20rem); /* Adjusts height to account for the margin */
+}
+.portfolio-modal .modal-content {
+  background: rgba(167, 196, 210, 0.8); /* Transparent dusty blue */
+  border: none;
+  border-radius: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  font-family: 'Perpetua', serif; /* Match the font */
+  color: var(--text-color); /* Use the text color variable */
+  line-height: 1.8; /* Match the line height */
+}
+
+.portfolio-modal .modal-content h2 {
+  font-family: 'Edwardian Script ITC', cursive; /* Match the heading font */
+  font-size: 3rem;
+  line-height: 3rem;
+  color: var(--heading-color); /* Use the heading color variable */
+  margin-bottom: 1rem;
+  text-transform: none;
+}
+
+.portfolio-modal .modal-content p {
+  font-family: 'Perpetua', serif; /* Match the paragraph font */
+  font-size: 2.2rem;
+  line-height: 1.6;
+  color: var(--text-color); /* Use the text color variable */
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+    .portfolio-modal .modal-content p.item-intro {
+      font-style: italic;
+      margin-bottom: 2rem;
+    }
+    .portfolio-modal .close-modal {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      width: 3rem;
+      height: 3rem;
+      cursor: pointer;
+      background-color: transparent;
+    }
+    
+    
+
+
+    body {
+      margin: 0;
+      font-family: 'Perpetua', serif;
+      font-weight: 400;
+      background-color: var(--light-gray);
+      color: var(--text-color);
+      line-height: 1.8;
+      overflow-x: hidden;
+      letter-spacing: 0.5px;
+    }
+    header {
+      background: linear-gradient(rgb(0 0 0 / 30%), #000), url('assets/img/Background/1.png');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      padding: 4rem 3rem;
+      text-align: center;
+      width: 100%;
+      max-width: 2000px;
+      margin: 0 auto;
+    }
+    header h1 {
+      font-family: 'Edwardian Script ITC', cursive;
+      font-size: 5rem;
+      color: var(--header-text);
+      margin-bottom: 1rem;
+      letter-spacing: 2px;
+      font-weight: 400;
+      text-transform: none;
+    }
+    header h2 {
+      font-family: 'Perpetua', serif;
+      font-size: 8  rem;
+      color: var(--header-text);
+      margin: 1.5rem 0;
+      letter-spacing: 4px;
+      font-weight: 600;
+      text-transform: uppercase;
+      border: none;
+    }
+    header h3 {
+      font-family: 'Edwardian Script ITC', cursive;
+      font-size: 5rem;
+      color: var(--header-text);
+      margin-bottom: 2rem;
+      letter-spacing: 2px;
+      font-weight: 400;
+      text-transform: none;
+    }
+    header p, .venue-details {
+      font-family: 'Perpetua', serif;
+      font-style: normal;
+      margin-top: 2.5rem;
+      font-size: 3.5rem;
+      color: var(--header-text);
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+      line-height: 1.4;
+    }
+    .venue-details {
+      margin-top: 1.5rem;
+    }
+    .hero-image {
+      width: 100%;
+      max-width: 2000px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+      transition: all 0.3s ease-in-out;
+      text-decoration: none;
+    }
+    .hero-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+      transition: transform 0.3s ease-in-out;
+    }
+    .hero-image:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    }
+    .hero-image:hover img {
+      transform: scale(1.05);
+    }
+    .hero-image-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(26, 44, 61, 0.7), rgba(26, 44, 61, 0.5));
+      opacity: 0;
+      transition: all 0.3s ease-in-out;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: var(--white);
+      text-align: center;
+      padding: 2rem;
+    }
+    .hero-image:hover .hero-image-caption {
+      opacity: 1;
+    }
+    .hero-image-caption .project-category {
+      font-family: 'Edwardian Script ITC', cursive;
+      font-size: 4rem;
+      font-weight: 400;
+      margin-bottom: 0.5rem;
+      color: var(--white);
+      text-transform: none;
+      letter-spacing: 2px;
+    }
+    .hero-image-caption .project-name {
+      font-family: 'Edwardian Script ITC', cursive;
+      font-size: 2.5rem;
+      font-weight: 500;
+      color: var(--white);
+      letter-spacing: 1px;
+    }
+    section {
+      max-width: 2000px;
+      margin: auto;
+      padding: 4rem 3rem;
+      background: linear-gradient(rgba(167, 196, 210, 0.4), rgba(167, 196, 210, 0.6)), url('assets/img/Background/2.png');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: var(--white);
+      text-align: center;
+    }
+    h2 {
+      font-family: 'Edwardian Script ITC', cursive;
+      color: var(--header-text);
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 0.5rem;
+      font-size: 4.5rem;
+      margin-top: 3rem;
+      font-weight: 400;
+      letter-spacing: 2px;
+      text-transform: none;
+    }
+    p {
+      font-family: 'Perpetua', serif;
+      font-weight: 400;
+      letter-spacing: 1px;
+      text-transform: none;
+      color: var(--white);
+      font-size: 2.2rem;
+      line-height: 1.6;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 1.5rem;
+    }
+    .schedule {
+      font-family: 'Edwardian Script ITC', cursive;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 1.5rem 3rem;
+      margin-top: 2rem;
+      font-size: 3rem;
+      color: var(--white);
+      font-weight: 400;
+      max-width: 800px;
+      margin: 2rem auto;
+      text-align: center;
+      letter-spacing: 1px;
+    }
+    footer {
+      font-family: 'Perpetua', serif;
+      text-align: center;
+      padding: 3rem;
+      font-size: 1.6rem;
+      color: var(--header-text);
+      background: linear-gradient(rgba(26, 44, 61, 0.7), rgba(26, 44, 61, 0.7)), url('assets/img/Background/2.png');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      margin: 0;
+      font-weight: 400;
+      letter-spacing: 2px;
+    }
+    @media (min-width: 2560px) {
+      header {
+        padding: 5rem 4rem;
+      }
+      header h1 {
+        font-size: 5rem;
+      }
+      header p, .venue-details {
+        font-size: 3.5rem;
+      }
+    }
+    @media (max-width: 1400px) {
+      header {
+        padding: 2.5rem 1.5rem;
+      }
+      header h1 {
+        font-size: 3rem;
+      }
+      header p, .venue-details {
+        font-size: 3.5rem;
+      }
+    }
+    @media (max-width: 1200px) {
+      header {
+        padding: 2rem 1rem;
+      }
+      header h1 {
+        font-size: 2.5rem;
+      }
+      header p, .venue-details {
+        font-size: 3.5rem;
+      }
+    }
+    @media (max-width: 992px) {
+      header h1 {
+        font-size: 2.2rem;
+      }
+      header p, .venue-details {
+        font-size: 3.5rem;
+      }
+    }
+    @media (max-width: 768px) {
+      header {
+        padding: 1.5rem 1rem;
+      }
+      header h1 {
+        font-size: 4rem;
+        letter-spacing: 3px;
+      }
+      header p, .venue-details {
+        font-size: 3.5rem;
+      }
+    }
+    @media (max-width: 576px) {
+      header h1 {
+        font-size: 3rem;
+        letter-spacing: 2px;
+      }
+      header p, .venue-details {
+        font-size: 3.5rem;
+      }
+    }
+    /* Portfolio Styles */
+    #portfolio {
+      padding: 0;
+      margin: 0;
+      background: linear-gradient(rgba(167, 196, 210, 0.2), rgba(167, 196, 210, 0.3)), url('assets/img/Background/3.png');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: var(--white);
+      text-align: center;
+      max-height: 100vh;
+      overflow-y: auto;
+    }
+    .portfolio-box {
+      position: relative;
+      display: block;
+      overflow: hidden;
+      background: transparent;
+      border: 1px solid var(--border-color);
+      transition: all 0.3s ease-in-out;
+      margin-bottom: 2rem;
+    }
+    .portfolio-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    }
+    .portfolio-box .portfolio-box-caption {
+      position: absolute;
+      bottom: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      opacity: 0;
+      color: var(--white);
+      background: linear-gradient(to bottom, rgba(26, 44, 61, 0.9), rgba(26, 44, 61, 0.7));
+      transition: all 0.3s ease-in-out;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .portfolio-box:hover .portfolio-box-caption {
+      opacity: 1;
+    }
+    .portfolio-box .portfolio-box-caption .project-category {
+  font-family: 'Perpetua', serif; /* Match the paragraph font */
+  font-size: 2rem; /* Adjust font size */
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+  color: var(--white); /* Use the white color variable */
+  text-transform: uppercase;
+  letter-spacing: 1.5px; /* Adjust letter spacing */
+}
+
+.portfolio-box .portfolio-box-caption .project-name {
+  font-family: 'Edwardian Script ITC', cursive; /* Match the heading font */
+  font-size: 3rem; /* Adjust font size */
+  font-weight: 400;
+  color: var(--white); /* Use the white color variable */
+  letter-spacing: 1px; /* Adjust letter spacing */
+  text-transform: none;
+}
+    .portfolio-box img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      transition: transform 0.3s ease-in-out;
+    }
+    .portfolio-box:hover img {
+      transform: scale(1.05);
+    }
+    .portfolio-description {
+      padding: 2rem;
+      font-family: 'Perpetua', serif;
+      font-size: 1.8rem;
+      color: var(--white);
+      line-height: 1.6;
+      text-align: left;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    /* Portfolio Container Styles */
+    .container-fluid.p-0 {
+      background: var(--portfolio-bg);
+      padding: 2rem 3rem;
+    }
+    .row.g-0 {
+      margin: 0;
+      padding: 0;
+    }
+    .col-lg-4, .col-md-6, .col-sm-12 {
+      padding: 1rem;
+    }
+
+    /* Responsive adjustments for Portfolio */
+    @media (min-width: 2560px) {
+      .container-fluid.p-0 {
+        padding: 3rem 4rem;
+      }
+      .portfolio-box img {
+        height: 400px;
+      }
+      .portfolio-box .portfolio-box-caption .project-category {
+        font-size: 1.2rem;
+      }
+      .portfolio-box .portfolio-box-caption .project-name {
+        font-size: 1.8rem;
+      }
+    }
+    @media (max-width: 1400px) {
+      .container-fluid.p-0 {
+        padding: 2.5rem 1.5rem;
+      }
+      .portfolio-box img {
+        height: 300px;
+      }
+    }
+    @media (max-width: 1200px) {
+      .container-fluid.p-0 {
+        padding: 2rem 1rem;
+      }
+      .portfolio-box img {
+        height: 250px;
+      }
+      .portfolio-box .portfolio-box-caption .project-category {
+        font-size: 0.8rem;
+      }
+      .portfolio-box .portfolio-box-caption .project-name {
+        font-size: 1.1rem;
+      }
+    }
+    @media (max-width: 992px) {
+      .container-fluid.p-0 {
+        padding: 1.5rem 1rem;
+      }
+      .portfolio-box img {
+        height: 220px;
+      }
+      .col-lg-4, .col-md-6, .col-sm-12 {
+        padding: 0.8rem;
+      }
+    }
+    @media (max-width: 768px) {
+      .container-fluid.p-0 {
+        padding: 1.5rem 1rem;
+      }
+      .portfolio-box img {
+        height: 200px;
+      }
+      .portfolio-box .portfolio-box-caption .project-category {
+        font-size: 0.75rem;
+      }
+      .portfolio-box .portfolio-box-caption .project-name {
+        font-size: 1rem;
+      }
+      .col-lg-4, .col-md-6, .col-sm-12 {
+        padding: 0.5rem;
+      }
+    }
+    @media (max-width: 576px) {
+      .container-fluid.p-0 {
+        padding: 1rem 0.5rem;
+      }
+      .portfolio-box img {
+        height: 180px;
+      }
+      #portfolio {
+        margin: 1rem 0;
+      }
+      .col-lg-4, .col-md-6, .col-sm-12 {
+        padding: 0.3rem;
+      }
+    }
+    /* Timeline Styles */
+    .timeline-container {
+      padding: 4rem 0;
+      width: 100%;
+      max-width: 1400px;
+      margin: 0 auto;
+      background: transparent;
+    }
+    .timeline {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      padding: 0 2rem;
+      width: 100%;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0),
+        rgba(255, 255, 255, 0.8) 20%,
+        rgba(255, 255, 255, 0.8) 80%,
+        rgba(255, 255, 255, 0)
+      );
+      z-index: 1;
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      top: 90px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 2px;
+      height: 40px;
+      background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.8),
+        rgba(255, 255, 255, 0)
+      );
+      z-index: 1;
+    }
+    .timeline-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+      flex: 1;
+      padding: 0 1rem;
+    }
+    .timeline-circle {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 4px solid rgba(255, 255, 255, 0.8);
+      background: rgba(255, 255, 255, 0.1);
+      margin-bottom: 2rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+      position: relative;
+    }
+    .timeline-circle::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.2),
+        transparent 50%
+      );
+      pointer-events: none;
+    }
+    .timeline-circle:hover {
+      transform: scale(1.15);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.3);
+    }
+    .timeline-circle img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .timeline-content {
+      text-align: center;
+      padding: 0 1rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .timeline-content h3 {
+      font-family: 'Edwardian Script ITC', cursive;
+      margin: 0;
+      color: var(--heading-color);
+      font-size: 3rem;
+      font-weight: 400;
+      margin-bottom: 0.5rem;
+      letter-spacing: 2px;
+      text-transform: none;
+    }
+    .timeline-content p {
+      font-family: 'Edwardian Script ITC', cursive;
+      margin: 0;
+      color: var(--white);
+      font-size: 2.8rem;
+      font-weight: 400;
+      letter-spacing: 1px;
+      text-transform: none;
+    }
+    @media (min-width: 2560px) {
+      .timeline-container {
+        padding: 6rem 0;
+      }
+      .timeline-circle {
+        width: 250px;
+        height: 250px;
+      }
+      .timeline-content h3 {
+        font-size: 2rem;
+      }
+      .timeline-content p {
+        font-size: 1.6rem;
+      }
+    }
+    @media (max-width: 1200px) {
+      .timeline-container {
+        padding: 3rem 0;
+      }
+      .timeline-circle {
+        width: 150px;
+        height: 150px;
+      }
+      .timeline-content h3 {
+        font-size: 1.3rem;
+      }
+      .timeline-content p {
+        font-size: 1.1rem;
+      }
+    }
+    @media (max-width: 992px) {
+      .timeline-circle {
+        width: 130px;
+        height: 130px;
+      }
+      .timeline-content h3 {
+        font-size: 1.2rem;
+      }
+      .timeline-content p {
+        font-size: 1rem;
+      }
+    }
+    @media (max-width: 768px) {
+      .timeline-container {
+        padding: 2rem 0;
+      }
+      .timeline {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 3rem;
+      }
+      .timeline::before {
+        display: none;
+      }
+      .timeline-item {
+        flex: 0 0 calc(50% - 1.5rem);
+        margin-bottom: 2rem;
+      }
+      .timeline-circle {
+        width: 160px;
+        height: 160px;
+      }
+    }
+    @media (max-width: 576px) {
+      .timeline-item {
+        flex: 0 0 100%;
+      }
+      .timeline-circle {
+        width: 180px;
+        height: 180px;
+      }
+      .timeline-content h3 {
+        font-size: 1.4rem;
+      }
+      .timeline-content p {
+        font-size: 2.2rem;
+      }
+    }
+    /* Ultra High Resolution Breakpoints */
+    @media (min-width: 10000px) {
+      header {
+        padding: 15rem 10rem;
+      }
+      header h1 {
+        font-size: 12rem;
+        letter-spacing: 8px;
+      }
+      header p {
+        font-size: 6rem;
+      }
+      section {
+        padding: 15rem 10rem;
+      }
+      h2 {
+        font-size: 8rem;
+        margin-top: 8rem;
+      }
+      p {
+        font-size: 4rem;
+        line-height: 2.5;
+      }
+      .schedule {
+        gap: 4rem 8rem;
+        font-size: 4rem;
+      }
+      footer {
+        padding: 8rem;
+        font-size: 3rem;
+      }
+      .portfolio-box img {
+        height: 1000px;
+      }
+      .portfolio-box .portfolio-box-caption .project-category {
+        font-size: 3rem;
+      }
+      .portfolio-box .portfolio-box-caption .project-name {
+        font-size: 4rem;
+      }
+      .timeline-circle {
+        width: 400px;
+        height: 400px;
+      }
+      .timeline-content h3 {
+        font-size: 3rem;
+      }
+      .timeline-content p {
+        font-size: 2.5rem;
+      }
+    }
+    @media (min-width: 8000px) {
+      header {
+        padding: 12rem 8rem;
+      }
+      header h1 {
+        font-size: 10rem;
+        letter-spacing: 6px;
+      }
+      header p {
+        font-size: 5rem;
+      }
+      section {
+        padding: 12rem 8rem;
+      }
+      h2 {
+        font-size: 6rem;
+        margin-top: 6rem;
+      }
+      p {
+        font-size: 3rem;
+      }
+      .schedule {
+        gap: 3rem 6rem;
+        font-size: 3rem;
+      }
+      footer {
+        padding: 6rem;
+        font-size: 2.5rem;
+      }
+      .portfolio-box img {
+        height: 800px;
+      }
+      .portfolio-box .portfolio-box-caption .project-category {
+        font-size: 2.5rem;
+      }
+      .portfolio-box .portfolio-box-caption .project-name {
+        font-size: 3rem;
+      }
+      .timeline-circle {
+        width: 300px;
+        height: 300px;
+      }
+      .timeline-content h3 {
+        font-size: 2.5rem;
+      }
+      .timeline-content p {
+        font-size: 2rem;
+      }
+    }
+    @media (min-width: 6000px) {
+      header {
+        padding: 10rem 6rem;
+      }
+      header h1 {
+        font-size: 8rem;
+        letter-spacing: 5px;
+      }
+      header p {
+        font-size: 4rem;
+      }
+      section {
+        padding: 10rem 6rem;
+      }
+      h2 {
+        font-size: 5rem;
+        margin-top: 5rem;
+      }
+      p {
+        font-size: 2.5rem;
+      }
+      .schedule {
+        gap: 2.5rem 5rem;
+        font-size: 2.5rem;
+      }
+      footer {
+        padding: 5rem;
+        font-size: 2rem;
+      }
+      .portfolio-box img {
+        height: 600px;
+      }
+      .portfolio-box .portfolio-box-caption .project-category {
+        font-size: 2rem;
+      }
+      .portfolio-box .portfolio-box-caption .project-name {
+        font-size: 2.5rem;
+      }
+      .timeline-circle {
+        width: 250px;
+        height: 250px;
+      }
+      .timeline-content h3 {
+        font-size: 2rem;
+      }
+      .timeline-content p {
+        font-size: 1.8rem;
+      }
+    }
+    @media (min-width: 4000px) {
+      header {
+        padding: 8rem 5rem;
+      }
+      header h1 {
+        font-size: 6rem;
+        letter-spacing: 4px;
+      }
+      header p {
+        font-size: 3rem;
+      }
+      section {
+        padding: 8rem 5rem;
+      }
+      h2 {
+        font-size: 4rem;
+        margin-top: 4rem;
+      }
+      p {
+        font-size: 2rem;
+      }
+      .schedule {
+        gap: 2rem 4rem;
+        font-size: 2rem;
+      }
+      footer {
+        padding: 4rem;
+        font-size: 1.8rem;
+      }
+      .portfolio-box img {
+        height: 500px;
+      }
+      .portfolio-box .portfolio-box-caption .project-category {
+        font-size: 1.5rem;
+      }
+      .portfolio-box .portfolio-box-caption .project-name {
+        font-size: 2rem;
+      }
+      .timeline-circle {
+        width: 200px;
+        height: 200px;
+      }
+      .timeline-content h3 {
+        font-size: 1.5rem;
+      }
+      .timeline-content p {
+        font-size: 1.4rem;
+      }
+    }
+    .title {
+      font-family: 'Perpetua', serif;
+      font-weight: 500;
+      letter-spacing: 2px;
+    }
+    .timeline-description {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to bottom, rgba(26, 44, 61, 0.9), rgba(26, 44, 61, 0.7));
+      padding: 2rem;
+      opacity: 0;
+      transition: all 0.3s ease;
+      transform: translateY(20px);
+      pointer-events: none;
+      z-index: 10;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+    .timeline-circle:hover + .timeline-content .timeline-description {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .custom-paragraph {
+      font-family: 'Perpetua', serif;
+      font-size: 1.8rem;
+      line-height: 1.6;
+      color: var(--white);
+      margin: 0;
+      text-align: center;
+    }
+  
