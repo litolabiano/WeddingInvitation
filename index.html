@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>#TINadhana kay TON</title>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/img/icon.png" />
+    <!-- Bootstrap Icons-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    <!-- SimpleLightbox plugin CSS-->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.css" rel="stylesheet" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="styles.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <style>
+      /* Color Variables */
+      :root {
+        --primary: #A7C4D2;  /* Dusty blue */
+        --secondary: #E8EEF1; /* Light gray-blue */
+        --accent: #8BA9B9;   /* Deeper dusty blue */
+        --white: #FFFFFF;
+        --light-gray: #8f8f8f;
+        --text-color: #4A6573; /* Muted blue-gray for text */
+        --header-text: #A7C4D2; /* Light dusty blue for headers */
+        --border-color: rgba(167, 196, 210, 0.6); /* Transparent dusty blue */
+        
+        /* Background Colors */
+        --body-bg: #2C4A5A; /* Dark dusty blue */
+        --header-bg: var(--primary);
+        --section-bg: var(--light-gray);
+        --footer-bg: var(--primary);
+        --portfolio-bg: var(--light-gray);
+        
+        /* Text Colors */
+        --heading-color: var(--header-text);
+        --paragraph-color: var(--white);
+        --link-color: var(--white);
+        
+        /* Overlay Colors */
+        --overlay-start: rgba(26, 44, 61, 0.85);
+        --overlay-end: rgba(26, 44, 61, 0.7);
+
+        /* Base Sizes */
+        --header-h1-size: 3.5rem;
+        --header-h2-size: 5rem;
+        --header-h3-size: 3.5rem;
+        --header-p-size: 2.5rem;
+        --section-h2-size: 3rem;
+        --section-p-size: 1.8rem;
+        --timeline-circle-size: 150px;
+        --carousel-box-height: 250px;
+
+        /* Spacing Multipliers */
+        --spacing-xs: 0.5rem;
+        --spacing-sm: 1rem;
+        --spacing-md: 2rem;
+        --spacing-lg: 3rem;
+        --spacing-xl: 4rem;
+        --spacing-xxl: 6rem;
+
+        /* Component Spacing */
+        --header-padding: var(--spacing-xxl) var(--spacing-xl);
+        --section-padding: var(--spacing-xxl) var(--spacing-xl);
+        --component-margin: var(--spacing-xl);
+        --element-margin: var(--spacing-lg);
+        --text-margin: var(--spacing-md);
+        --grid-gap: var(--spacing-lg);
+      }
+
+      /* Reset all default margins and ensure full width */
+      *, *::before, *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html, body {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        max-width: 100vw;
+        overflow-x: hidden;
+        background-color: var(--body-bg);
+      }
+
+    body {
+      margin: 0;
+        font-family: 'Perpetua', serif;
+        font-weight: 400;
+        background-color: var(--body-bg);
+        color: var(--text-color);
+        line-height: 1.8;
+        overflow-x: hidden;
+        letter-spacing: 0.5px;
+      }
+
+      /* Fix container widths */
+      header, section, .hero-image, #portfolio, .timeline-container {
+        width: 100vw;
+        max-width: 100vw;
+        margin: 0;
+        padding-left: 0;
+        padding-right: 0;
+        overflow-x: hidden;
+      }
+
+      /* Update container padding */
+      .container-fluid {
+        width: 100%;
+        max-width: 100vw;
+        margin: 0;
+        padding: 0;
+      }
+
+      .row {
+        margin: 0;
+        width: 100%;
+      }
+
+      /* Fix section padding */
+      section {
+        padding: var(--section-padding);
+        margin-bottom: var(--component-margin);
+        width: 100%;
+        max-width: none;
+        margin: 0;
+        background: linear-gradient(rgba(140, 157, 173, 0.3),     #382826), url('assets/img/Background/2.png');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+      }
+
+      section:not(:last-child) {
+        margin-bottom: 6rem;
+      }
+
+      section h2 {
+        margin-top: 0;
+        margin-bottom: var(--element-margin);
+        padding-top: var(--text-margin);
+        font-size: var(--section-h2-size);
+      }
+
+      section p {
+        margin-bottom: var(--text-margin);
+        font-size: var(--section-p-size);
+      }
+
+      .schedule {
+        margin-top: var(--element-margin);
+        margin-bottom: var(--component-margin);
+        font-size: var(--section-p-size);
+      }
+
+      .timeline-container {
+        padding: var(--spacing-md);
+        width: 100%;
+        max-width: 1600px;
+        margin: var(--spacing-lg) auto;
+        background: transparent;
+        position: relative;
+      }
+
+      .timeline {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        padding: var(--spacing-xs);
+        width: 100%;
+        gap: var(--spacing-sm);
+      }
+
+      .timeline::before {
+        display: none;
+      }
+
+      .timeline-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        z-index: 2;
+        padding: var(--spacing-xs);
+        transition: all 0.3s ease;
+      }
+
+      .timeline-item::before {
+        display: none;
+      }
+
+      .timeline-item::after {
+        display: none;
+      }
+
+      .portfolio-item {
+        position: relative;
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        overflow: hidden;
+        border: 4px solid var(--border-color);
+        background: rgba(255, 255, 255, 0.1);
+        margin-bottom: var(--element-margin);
+        transition: all 0.3s ease;
+        box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+        animation: circleGlow 3s infinite alternate;
+        cursor: pointer;
+      }
+
+      .portfolio-link {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+        display: block;
+      }
+
+      .portfolio-item img {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease-in-out;
+        z-index: 1;
+      }
+
+      .portfolio-caption {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(to bottom, transparent, rgba(26, 44, 61, 0.9));
+        padding: 1rem;
+        text-align: center;
+        opacity: 0;
+        transition: all 0.3s ease;
+        z-index: 3;
+      }
+
+      .portfolio-item:hover {
+        transform: scale(1.15);
+        box-shadow: 0 12px 24px rgba(0,0,0,0.3);
+      }
+
+      .portfolio-item:hover img {
+        transform: scale(1.1);
+      }
+
+      .portfolio-item:hover .portfolio-caption {
+        opacity: 1;
+      }
+
+      .portfolio-caption-heading {
+        font-family: 'Perpetua', serif;
+        font-size: calc(var(--section-p-size) * 0.8);
+        color: var(--white);
+        margin: 0;
+      }
+
+      /* Center all text outside Our Journey section */
+      section h2 {
+        text-align: center;
+        margin: 0 auto;
+        max-width: 800px;
+      }
+
+      section p {
+      text-align: center;
+        margin: 0 auto;
+        max-width: 800px;
+    }
+
+      .schedule {
+        text-align: center;
+        margin: 0 auto;
+        max-width: 800px;
+      }
+
+      .schedule div {
+        text-align: center;
+      }
+
+      /* Image Carousel Styles */
+      #carousel {
+        padding: var(--section-padding);
+        margin-bottom: var(--component-margin);
+        background: linear-gradient(rgba(167, 196, 210, 0.2), rgba(167, 196, 210, 0.3)), url('assets/img/Background/3.png');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        color: var(--white);
+        text-align: center;
+        max-height: 100vh;
+        overflow-y: auto;
+      }
+
+      .carousel-box {
+        position: relative;
+        display: block;
+        overflow: hidden;
+        background: transparent;
+        border: 1px solid var(--border-color);
+        transition: all 0.3s ease-in-out;
+        margin-bottom: var(--element-margin);
+        height: var(--carousel-box-height);
+      }
+
+      .carousel-box:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+      }
+
+      .carousel-box img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease-in-out;
+      }
+
+      .carousel-box:hover img {
+        transform: scale(1.05);
+      }
+
+      .carousel-box-caption {
+        position: absolute;
+        bottom: 0;
+        display: block;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        opacity: 0;
+        color: var(--white);
+        background: linear-gradient(to bottom, rgba(26, 44, 61, 0.9), rgba(26, 44, 61, 0.7));
+        transition: all 0.3s ease-in-out;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: var(--spacing-lg);
+      }
+
+      .carousel-box:hover .carousel-box-caption {
+        opacity: 1;
+      }
+
+      .carousel-box-caption .project-category {
+        font-family: 'Edwardian Script ITC', cursive;
+        font-size: calc(var(--section-h2-size) * 1.2);
+        font-weight: 400;
+        margin-bottom: var(--spacing-sm);
+        color: var(--white);
+        text-transform: none;
+        letter-spacing: 2px;
+      }
+
+      .carousel-box-caption .project-name {
+        font-family: 'Edwardian Script ITC', cursive;
+        font-size: calc(var(--section-h2-size) * 0.8);
+        font-weight: 500;
+        color: var(--white);
+        letter-spacing: 1px;
+      }
+
+      .carousel-box-caption .project-description {
+        font-family: 'Perpetua', serif;
+        font-size: calc(var(--section-p-size) * 0.9);
+        color: var(--white);
+        margin-top: var(--spacing-sm);
+        padding: 0 var(--spacing-md);
+        line-height: 1.6;
+      }
+
+      /* Responsive Carousel Styles */
+      @media (max-width: 1400px) {
+        .carousel-box {
+          height: 230px;
+        }
+        .carousel-box-caption .project-category {
+          font-size: 3.5rem;
+        }
+        .carousel-box-caption .project-name {
+          font-size: 2.2rem;
+        }
+        .carousel-box-caption .project-description {
+          font-size: 1.6rem;
+        }
+      }
+
+      @media (max-width: 1200px) {
+        .carousel-box {
+          height: 210px;
+        }
+        .carousel-box-caption .project-category {
+          font-size: 3rem;
+        }
+        .carousel-box-caption .project-name {
+          font-size: 2rem;
+        }
+        .carousel-box-caption .project-description {
+          font-size: 1.4rem;
+        }
+      }
+
+      @media (max-width: 992px) {
+        .carousel-box {
+          height: 190px;
+        }
+        .carousel-box-caption .project-category {
+          font-size: 2.8rem;
+        }
+        .carousel-box-caption .project-name {
+          font-size: 1.8rem;
+        }
+        .carousel-box-caption .project-description {
+          font-size: 1.3rem;
+          padding: 0 1.5rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        #carousel {
+          padding: var(--spacing-sm) var(--spacing-xs);
+        }
+        .carousel-box {
+          height: 170px;
+          margin-bottom: var(--element-margin);
+        }
+        .carousel-box-caption {
+          padding: var(--spacing-lg);
+        }
+        .carousel-box-caption .project-category {
+          font-size: 2.5rem;
+        }
+        .carousel-box-caption .project-name {
+          font-size: 1.6rem;
+        }
+        .carousel-box-caption .project-description {
+          font-size: 1.2rem;
+          padding: 0 var(--spacing-md);
+        }
+      }
+
+      @media (max-width: 576px) {
+        #carousel {
+          padding: var(--spacing-xs);
+        }
+        .carousel-box {
+          height: 200px;
+          margin-bottom: var(--element-margin);
+        }
+        .carousel-box-caption {
+          padding: var(--spacing-xs);
+        }
+        .carousel-box-caption .project-category {
+          font-size: 2.2rem;
+        }
+        .carousel-box-caption .project-name {
+          font-size: 1.4rem;
+        }
+        .carousel-box-caption .project-description {
+          font-size: 1.1rem;
+          padding: 0 var(--spacing-xs);
+        }
+      }
+
+      @media (max-width: 400px) {
+        .carousel-box {
+          height: 180px;
+        }
+        .carousel-box-caption .project-category {
+          font-size: 2rem;
+        }
+        .carousel-box-caption .project-name {
+          font-size: 1.3rem;
+        }
+        .carousel-box-caption .project-description {
+          font-size: 1rem;
+          padding: 0 var(--spacing-xs);
+        }
+      }
+
+      /* Modal Styles */
+      .portfolio-modal .modal-dialog {
+        margin: var(--spacing-xl);
+        max-width: calc(100% - var(--spacing-xxl));
+        max-height: calc(100% - var(--spacing-xxl));
+      }
+
+      .portfolio-modal .modal-content {
+        background: rgba(167, 196, 210, 0.8);
+        border: none;
+        border-radius: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: var(--spacing-lg);
+        font-family: 'Perpetua', serif;
+        color: var(--text-color);
+        line-height: 1.6;
+      }
+
+      .portfolio-modal .modal-content h2 {
+        font-family: 'Edwardian Script ITC', cursive;
+        font-size: calc(var(--section-h2-size) * 1.2);
+        line-height: 1.2;
+        color: var(--heading-color);
+        margin-bottom: var(--spacing-sm);
+        text-transform: none;
+      }
+
+      .portfolio-modal .modal-content p {
+        font-family: 'Perpetua', serif;
+        font-size: calc(var(--section-p-size) * 0.9);
+        line-height: 1.4;
+        color: var(--text-color);
+        margin-bottom: var(--spacing-sm);
+        text-align: center;
+      }
+
+      /* Modal Close Button Styles */
+      .portfolio-modal .close-modal {
+        position: absolute;
+        top: var(--spacing-sm);
+        right: var(--spacing-sm);
+        width: calc(var(--spacing-md) * 0.8);
+        height: calc(var(--spacing-md) * 0.8);
+        cursor: pointer;
+        background-color: transparent;
+        border: none;
+        padding: 0;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.3s ease;
+      }
+
+      .portfolio-modal .close-modal img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        filter: brightness(0) invert(1);
+        transition: transform 0.3s ease;
+      }
+
+      .portfolio-modal .close-modal:hover {
+        transform: scale(1.1);
+      }
+
+      .portfolio-modal .close-modal:hover img {
+        transform: rotate(90deg);
+      }
+
+      /* Responsive Close Button */
+      @media (max-width: 768px) {
+        .portfolio-modal .close-modal {
+          width: calc(var(--spacing-sm) * 0.8);
+          height: calc(var(--spacing-sm) * 0.8);
+        }
+      }
+
+      @media (max-width: 576px) {
+        .portfolio-modal .close-modal {
+          width: calc(var(--spacing-xs) * 0.8);
+          height: calc(var(--spacing-xs) * 0.8);
+        }
+      }
+
+      /* Footer Styles */
+      footer {
+        font-family: 'Perpetua', serif;
+        text-align: center;
+        padding: var(--spacing-xl);
+        margin-top: var(--component-margin);
+        font-size: 1.6rem;
+        color: var(--header-text);
+        background: linear-gradient(rgba(26, 44, 61, 0.7), rgba(26, 44, 61, 0.7)), url('assets/img/Background/2.png');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        margin: 0;
+        font-weight: 400;
+        letter-spacing: 2px;
+      }
+
+      /* Responsive Styles */
+      @media (min-width: 2560px) {
+        header {
+          padding: var(--spacing-xl) var(--spacing-lg);
+        }
+        header h1 {
+          font-size: 5rem;
+        }
+        header p, .venue-details {
+          font-size: 3.5rem;
+        }
+        .timeline-container {
+          padding: var(--spacing-xl) var(--spacing-lg);
+        }
+        .timeline-circle {
+          width: 250px;
+          height: 250px;
+        }
+        .timeline-content h3 {
+          font-size: 2rem;
+        }
+        .timeline-content p {
+          font-size: 1.6rem;
+        }
+      }
+
+      @media (max-width: 1400px) {
+        header {
+          padding: var(--spacing-xl) var(--spacing-lg);
+        }
+        header h1 {
+          font-size: 3rem;
+        }
+        header p, .venue-details {
+          font-size: 3.5rem;
+        }
+      }
+
+      @media (max-width: 1200px) {
+        header {
+          padding: var(--spacing-lg) var(--spacing-md);
+        }
+        header h1 {
+          font-size: 2.5rem;
+        }
+        header p, .venue-details {
+          font-size: 3.5rem;
+        }
+        .timeline-container {
+          padding: var(--spacing-lg) var(--spacing-md);
+        }
+        .timeline-circle {
+          width: 150px;
+          height: 150px;
+        }
+        .timeline-content h3 {
+          font-size: 1.3rem;
+        }
+        .timeline-content p {
+          font-size: 1.1rem;
+        }
+      }
+
+      @media (max-width: 992px) {
+        header h1 {
+          font-size: 2.2rem;
+        }
+        header p, .venue-details {
+          font-size: 3.5rem;
+        }
+        .timeline-circle {
+          width: 130px;
+          height: 130px;
+        }
+        .timeline-content h3 {
+          font-size: 1.2rem;
+        }
+        .timeline-content p {
+          font-size: 1rem;
+        }
+      }
+
+      @media (max-width: 768px) {
+        header {
+          padding: var(--spacing-sm) var(--spacing-xs);
+        }
+        header h1 {
+          font-size: 4rem;
+          letter-spacing: 3px;
+        }
+        header p, .venue-details {
+          font-size: 3.5rem;
+        }
+        .timeline-container {
+          padding: var(--spacing-sm) var(--spacing-xs);
+          border-width: 3px;
+        }
+        .timeline {
+          padding: var(--spacing-sm);
+        }
+        .timeline::before {
+          display: none;
+        }
+        .timeline-item {
+          flex: 0 0 calc(50% - 1.5rem);
+          margin-bottom: var(--element-margin);
+        }
+        .timeline-circle {
+          width: 140px;
+          height: 140px;
+        }
+        section {
+          padding: var(--spacing-sm) var(--spacing-xs);
+        }
+        section:not(:last-child) {
+          margin-bottom: var(--spacing-md);
+        }
+        .schedule {
+          font-size: 2rem;
+          gap: var(--spacing-sm) var(--spacing-lg);
+        }
+        .schedule div {
+          font-size: 2rem;
+        }
+        .portfolio-item {
+          width: 140px;
+          height: 140px;
+        }
+        .portfolio-caption-heading {
+          font-size: 1.2rem;
+        }
+      }
+
+      @media (max-width: 576px) {
+        header h1 {
+          font-size: 3rem;
+          letter-spacing: 2px;
+        }
+        header p, .venue-details {
+          font-size: 3.5rem;
+        }
+        .timeline-container {
+          border-width: 2px;
+        }
+        .timeline-item {
+          flex: 0 0 100%;
+        }
+        .timeline-circle {
+          width: 120px;
+          height: 120px;
+        }
+        .timeline-content h3 {
+          font-size: 1.4rem;
+        }
+        .timeline-content p {
+          font-size: 2.2rem;
+        }
+        section {
+          padding: var(--spacing-xs);
+        }
+        section:not(:last-child) {
+          margin-bottom: var(--spacing-sm);
+        }
+        header {
+          padding: var(--spacing-xs);
+        }
+        .hero-image {
+          margin-bottom: var(--spacing-md);
+        }
+        #carousel {
+          padding: var(--spacing-xs);
+        }
+        .schedule {
+          font-size: 1.8rem;
+          gap: var(--spacing-sm) var(--spacing-lg);
+          grid-template-columns: 1fr 1.5fr;
+        }
+        .schedule div {
+          font-size: 1.8rem;
+        }
+        .portfolio-item {
+          width: 120px;
+          height: 120px;
+        }
+        .portfolio-caption-heading {
+          font-size: 1.1rem;
+        }
+      }
+
+      /* Responsive Timeline Styles */
+      @media (max-width: 1600px) {
+        .timeline-container {
+          max-width: 1400px;
+          padding: var(--spacing-sm);
+        }
+        .timeline {
+          gap: var(--spacing-xs);
+        }
+        .portfolio-item {
+          width: 140px;
+          height: 140px;
+        }
+      }
+
+      @media (max-width: 1400px) {
+        .timeline-container {
+          max-width: 1200px;
+          padding: var(--spacing-sm);
+        }
+        .timeline {
+          gap: var(--spacing-xs);
+        }
+        .portfolio-item {
+          width: 130px;
+          height: 130px;
+        }
+      }
+
+      @media (max-width: 1200px) {
+        .timeline-container {
+          max-width: 1000px;
+          padding: var(--spacing-xs);
+        }
+        .timeline {
+          gap: calc(var(--spacing-xs) * 0.5);
+        }
+        .portfolio-item {
+          width: 120px;
+          height: 120px;
+        }
+      }
+
+      @media (max-width: 992px) {
+        .timeline-container {
+          max-width: 800px;
+          padding: var(--spacing-xs);
+        }
+        .timeline {
+          gap: calc(var(--spacing-xs) * 0.5);
+        }
+        .timeline-item {
+          flex: 0 0 calc(50% - calc(var(--spacing-xs) * 0.5));
+        }
+        .portfolio-item {
+          width: 130px;
+          height: 130px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .timeline-container {
+          max-width: 600px;
+          padding: var(--spacing-xs);
+        }
+        .timeline {
+          gap: calc(var(--spacing-xs) * 0.5);
+        }
+        .timeline-item {
+          flex: 0 0 calc(50% - calc(var(--spacing-xs) * 0.5));
+        }
+        .portfolio-item {
+          width: 120px;
+          height: 120px;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .timeline-container {
+          max-width: 400px;
+          padding: var(--spacing-xs);
+        }
+        .timeline {
+          gap: var(--spacing-xs);
+        }
+        .timeline-item {
+          flex: 0 0 100%;
+        }
+        .portfolio-item {
+          width: 140px;
+          height: 140px;
+        }
+      }
+
+      /* Container Fluid Styles */
+      .container-fluid.p-0 {
+        background-image: url('assets/img/portfolio/thumbnails/1.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        min-height: 100vh;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+      /* Responsive Container Fluid */
+      @media (max-width: 768px) {
+        .container-fluid.p-0 {
+          background-attachment: scroll;
+        }
+      }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>You Are Invited</h1>
+    <h2>ton & tin</h2>
+    <h3>Wedding</h3>
+    <p>June 20, 2025</p>
+  </header>
+
+  <a class="hero-image" href="assets/img/Background/2.png" title="Ton and Tin Wedding">
+    <img src="assets/img/Background/2.png" alt="Ton and Tin Wedding" />
+    <div class="hero-image-caption">
+      <div class="project-category text-white-50">Our Wedding</div>
+    </div>
+  </a>
+
+  <section>
+    <h2>A Chance Encounter</h2>
+    <p>
+      Write a paragraph that tells your story as a couple. You can include details
+      like how you met, your journey together, and what makes your relationship
+      unique. This is your chance to share your personality and connect with your
+      guests, giving them a glimpse into your love story and what this special day
+      means to you.
+    </p>
+
+    <h2>A Promise for Life</h2>
+    <p>
+      Share details about your ceremony, reception, or any other program-related
+      thing here.
+    </p>
+
+    <h2>The Day's Events</h2>
+    <div class="schedule">
+      <div>3:00 PM</div><div>Vows and I Do's</div>
+      <div>4:00 PM</div><div>Cocktail Hour</div>
+      <div>5:00 PM</div><div>Dinner and Dancing</div>
+      <div>8:00 PM</div><div>The Send-Off</div>
+    </div>
+
+    <h2>Our Journey</h2>
+    <div class="timeline-container">
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="portfolio-item">
+            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal1">
+              <img class="img-fluid" src="assets/img/Timeline/1.png" alt="Cristobal" />
+            </a>
+            <div class="portfolio-caption">
+              <div class="portfolio-caption-heading">Ceremony</div>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="portfolio-item">
+            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal2">
+              <img class="img-fluid" src="assets/img/Timeline/2.png" alt="Jamero" />
+            </a>
+            <div class="portfolio-caption">
+              <div class="portfolio-caption-heading">Photobooth</div>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="portfolio-item">
+            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal3">
+              <img class="img-fluid" src="assets/img/Timeline/3.png" alt="Labiano" />
+            </a>
+            <div class="portfolio-caption">
+              <div class="portfolio-caption-heading">Program</div>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="portfolio-item">
+            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal4">
+              <img class="img-fluid" src="assets/img/Timeline/4.png" alt="Ramos" />
+            </a>
+            <div class="portfolio-caption">
+              <div class="portfolio-caption-heading">Dinner</div>
+            </div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="portfolio-item">
+            <a class="portfolio-link" data-bs-toggle="modal" href="#portfolioModal5">
+              <img class="img-fluid" src="assets/img/Timeline/5.png" alt="Group" />
+            </a>
+            <div class="portfolio-caption">
+              <div class="portfolio-caption-heading">After Party</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Portfolio Modal 1 -->
+<div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close.png" alt="Close modal" /></div>
+      <div class="modal-body">
+        <h2>Our Story</h2>
+        <p class="item-intro text-muted">How it all began...</p>
+        <p>Ton and Tin met on a sunny afternoon at a local coffee shop. What started as a casual conversation turned into a beautiful journey of love and friendship. Their story is a testament to how fate brings two souls together.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Portfolio Modal 2 -->
+<div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close.png" alt="Close modal" /></div>
+      <div class="modal-body">
+        <h2>The Venue</h2>
+        <p class="item-intro text-muted">A place to remember...</p>
+        <p>The wedding will take place at the breathtaking Blue Ridge Gardens. Surrounded by nature's beauty, this venue is the perfect setting for Ton and Tin's special day.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Portfolio Modal 3 -->
+<div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close.png" alt="Close modal" /></div>
+      <div class="modal-body">
+        <h2>Wedding Party</h2>
+        <p class="item-intro text-muted">Meet the amazing people...</p>
+        <p>From childhood friends to close family members, the wedding party is filled with people who have supported Ton and Tin throughout their journey. Each member has a special place in their hearts.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Portfolio Modal 4 -->
+<div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close.png" alt="Close modal" /></div>
+      <div class="modal-body">
+        <h2>The Ceremony</h2>
+        <p class="item-intro text-muted">A moment to cherish...</p>
+        <p>The ceremony will be a heartfelt exchange of vows, symbolizing the love and commitment Ton and Tin share. It will be a moment to remember forever.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Portfolio Modal 5 -->
+<div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="close-modal" data-bs-dismiss="modal"><img src="assets/img/close.png" alt="Close modal" /></div>
+      <div class="modal-body">
+        <h2>The Reception</h2>
+        <p class="item-intro text-muted">Celebrate with us...</p>
+        <p>The reception will be a lively celebration filled with laughter, dancing, and delicious food. Join Ton and Tin as they start their new chapter together.</p>
+      </div>
+    </div>
+  </div>
+</div>
+    <h2>Dress Code</h2>
+    <p>
+      We kindly request a formal dress code for our wedding celebration. Gentlemen
+      should wear either a suit or a tuxedo, while ladies are encouraged to don a
+      formal cocktail dress or an evening gown.
+    </p>
+
+    <h2>Mobile-Free Ceremony</h2>
+    <p>
+      To ensure everyone fully enjoys the moment and no photos are interrupted, we
+      kindly request you to please refrain from using your mobile phones during the
+      ceremony. Thank you for your understanding.
+    </p>
+
+    <h2>Wedding Registry</h2>
+    <p>(Add your registry link here)</p>
+
+    <h2>RSVP & Guest Info</h2>
+    <p>(Add RSVP link or form here)</p>
+
+    <h2>Wedding Organizer</h2>
+    <p>Tin — We can't wait to hear from you!</p>
+  </section>
+
+  <div id="carousel">
+    <div class="container-fluid p-0">
+      <div class="row g-0">
+        <div class="col-lg-4 col-md-6 col-sm-12">
+          <a class="carousel-box" href="assets/img/portfolio/fullsize/1.png" title="Our Story - Write your description ">
+            <img class="img-fluid" src="assets/img/portfolio/thumbnails/1.png" alt="Our Story" />
+            <div class="carousel-box-caption">
+              <div class="project-category text-white-50">Memories</div>
+              <div class="project-name">Our Story</div>
+              <p class="project-description">Write your description here</p>
+            </div>
+          </a>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12">
+          <a class="carousel-box" href="assets/img/portfolio/fullsize/2.jpg" title="The Venue - Write your description here">
+            <img class="img-fluid" src="assets/img/portfolio/thumbnails/2.png" alt="The Venue" />
+            <div class="carousel-box-caption">
+              <div class="project-category text-white-50">Location</div>
+              <div class="project-name">The Venue</div>
+              <p class="project-description">Write your description here</p>
+            </div>
+          </a>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12">
+          <a class="carousel-box" href="assets/img/portfolio/fullsize/3.jpg" title="Wedding Party - Write your description here">
+            <img class="img-fluid" src="assets/img/portfolio/thumbnails/3.png" alt="Wedding Party" />
+            <div class="carousel-box-caption">
+              <div class="project-category text-white-50">People</div>
+              <div class="project-name">Wedding Party</div>
+              <p class="project-description">Write your description here</p>
+            </div>
+          </a>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12">
+          <a class="carousel-box" href="assets/img/portfolio/fullsize/4.jpg" title="Ceremony - Write your description here">
+            <img class="img-fluid" src="assets/img/portfolio/thumbnails/4.png" alt="Ceremony" />
+            <div class="carousel-box-caption">
+              <div class="project-category text-white-50">Events</div>
+              <div class="project-name">Ceremony</div>
+              <p class="project-description">Write your description here</p>
+            </div>
+          </a>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12">
+          <a class="carousel-box" href="assets/img/portfolio/fullsize/5.jpg" title="Reception - Write your description here">
+            <img class="img-fluid" src="assets/img/portfolio/thumbnails/5.png" alt="Reception" />
+            <div class="carousel-box-caption">
+              <div class="project-category text-white-50">Celebration</div>
+              <div class="project-name">Reception</div>
+              <p class="project-description">Write your description here</p>
+            </div>
+          </a>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12">
+          <a class="carousel-box" href="assets/img/portfolio/fullsize/6.jpg" title="Gallery - Write your description here">
+            <img class="img-fluid" src="assets/img/portfolio/thumbnails/6.jpg" alt="Gallery" />
+            <div class="carousel-box-caption">
+              <div class="project-category text-white-50">Photos</div>
+              <div class="project-name">Gallery</div>
+              <p class="project-description">Write your description here</p>
+            </div>
+          </a>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12">
+          <a class="carousel-box" href="assets/img/portfolio/fullsize/7.jpg" title="Memories - Write your description here">
+            <img class="img-fluid" src="assets/img/portfolio/thumbnails/7.jpg" alt="Memories" />
+            <div class="carousel-box-caption">
+              <div class="project-category text-white-50">Moments</div>
+              <div class="project-name">Memories</div>
+              <p class="project-description">Write your description here</p>
+            </div>
+          </a>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12">
+          <a class="carousel-box" href="assets/img/portfolio/fullsize/8.jpg" title="Details - Write your description here">
+            <img class="img-fluid" src="assets/img/portfolio/thumbnails/8.jpg" alt="Details" />
+            <div class="carousel-box-caption">
+              <div class="project-category text-white-50">Special</div>
+              <div class="project-name">Details</div>
+              <p class="project-description">Write your description here</p>
+            </div>
+          </a>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12">
+          <a class="carousel-box" href="assets/img/portfolio/fullsize/9.jpg" title="Celebration - Write your description here">
+            <img class="img-fluid" src="assets/img/portfolio/thumbnails/9.jpg" alt="Celebration" />
+            <div class="carousel-box-caption">
+              <div class="project-category text-white-50">Joy</div>
+              <div class="project-name">Celebration</div>
+              <p class="project-description">Write your description here</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+ 
+
+
+
+  <footer>
+    &copy; 2030 Ton & Tin. All rights reserved.
+  </footer>
+
+  <!-- Bootstrap core JS-->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- SimpleLightbox plugin JS-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/SimpleLightbox/2.1.0/simpleLightbox.min.js"></script>
+  <script>
+    // Initialize SimpleLightbox for both carousel and hero image
+    new SimpleLightbox({
+      elements: '#carousel a.carousel-box, a.hero-image'
+    });
+  </script>
+  <script>
+    // Initialize Bootstrap modals
+    document.addEventListener('DOMContentLoaded', function() {
+      var modals = document.querySelectorAll('.portfolio-modal');
+      modals.forEach(function(modal) {
+        new bootstrap.Modal(modal);
+      });
+    });
+  </script>
+</body>
+</html>
