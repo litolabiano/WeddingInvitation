@@ -1,0 +1,1256 @@
+/* ==========================================================================
+   Base Styles and Variables
+   ========================================================================== */
+
+    /* Color Variables */
+    :root {
+      --primary: #A7C4D2;  /* Dusty blue */
+      --secondary: #E8EEF1; /* Light gray-blue */
+      --accent: #8BA9B9;   /* Deeper dusty blue */
+      --white: #FFFFFF;
+      --light-gray: #8f8f8f;
+      --text-color: #4A6573; /* Muted blue-gray for text */
+      --header-text: #2C3E50;
+      --border-color: rgba(167, 196, 210, 0.6); /* Transparent dusty blue */
+      
+      /* Background Colors */
+      --body-bg: var(--light-gray);
+      --header-bg: var(--primary);
+      --section-bg: var(--light-gray);
+      --footer-bg: var(--primary);
+      --portfolio-bg: var(--light-gray);
+      
+      /* Text Colors */
+      --heading-color: var(--header-text);
+      --paragraph-color: var(--white);
+      --link-color: var(--white);
+      
+      /* Overlay Colors */
+      --overlay-start: rgba(26, 44, 61, 0.85);
+      --overlay-end: rgba(26, 44, 61, 0.7);
+
+      /* Font Families */
+      --font-primary: 'Playfair Display', Georgia, serif;
+      --font-secondary: 'Great Vibes', 'Playfair Display', cursive;
+      --font-body: 'Cormorant Garamond', Georgia, serif;
+    }
+
+/* Font imports */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap');
+
+:root {
+  --font-primary: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-secondary: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+  --font-size-base: 16px;
+  --line-height-base: 1.5;
+}
+
+/* Base font stack definitions */
+:root {
+  --font-primary: 'Playfair Display', Georgia, serif;
+  --font-secondary: 'Edwardian Script ITC', 'Playfair Display', Georgia, serif;
+  --font-body: 'Perpetua', 'Playfair Display', Georgia, serif;
+}
+
+/* Base Styles */
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  background: linear-gradient(rgba(167, 196, 210, 0.4), rgba(167, 196, 210, 0.6)), url('./assets/img/Background/1.png');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: var(--text-color);
+  overflow-x: hidden;
+  letter-spacing: 0.5px;
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* iOS specific body background fix */
+@supports (-webkit-touch-callout: none) {
+  body {
+    background-attachment: scroll;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+}
+
+/* iPhone 11 specific body background fix */
+
+/* ==========================================================================
+   Typography
+   ========================================================================== */
+
+/* Typography Scale */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-primary);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* Header Typography */
+header h1, header h3 {
+  font-family: var(--font-primary);
+  font-weight: 600;
+}
+
+header h2 {
+  font-family: var(--font-secondary);
+  font-weight: 600;
+}
+
+/* Section Typography */
+section h2 {
+  font-family: var(--font-secondary);
+  font-weight: 400;
+}
+
+section p, .schedule {
+  font-family: var(--font-body);
+  font-weight: 400;
+}
+
+/* Footer Typography */
+footer, .copyright {
+  font-family: var(--font-body);
+  font-weight: 400;
+}
+
+/* Portfolio Typography */
+.portfolio-modal .modal-content h2 {
+  font-family: var(--font-secondary);
+  font-weight: 600;
+}
+
+.portfolio-modal .modal-content p {
+  font-family: var(--font-body);
+}
+
+/* Timeline Typography */
+.timeline-content h3 {
+  font-family: var(--font-primary);
+}
+
+.timeline-content p {
+  font-family: var(--font-body);
+}
+
+/* ==========================================================================
+   Layout Components
+   ========================================================================== */
+
+/* Header Styles */
+    header {
+  background: linear-gradient(
+    rgba(26, 44, 61, 0.85),
+    rgba(26, 44, 61, 0.8)
+  ), url('./assets/img/Background/1.png');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      padding: 4rem 3rem;
+      text-align: center;
+      width: 100%;
+      max-width: 2000px;
+      margin: 0 auto;
+    }
+
+    header h1 {
+      font-size: 5rem;
+      color: var(--header-text);
+      margin-bottom: 1rem;
+      letter-spacing: 2px;
+      font-weight: 400;
+      text-transform: none;
+    }
+
+    header h2 {
+  font-size: 8rem;
+      color: var(--header-text);
+      margin: 1.5rem 0;
+      letter-spacing: 4px;
+      font-weight: 600;
+      text-transform: uppercase;
+      border: none;
+    }
+
+    header h3 {
+      font-size: 5rem;
+      color: var(--header-text);
+      margin-bottom: 2rem;
+      letter-spacing: 2px;
+      font-weight: 400;
+      text-transform: none;
+    }
+
+    header p, .venue-details {
+      font-style: normal;
+      margin-top: 2.5rem;
+      font-size: 3.5rem;
+      color: var(--header-text);
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+      line-height: 1.4;
+    }
+
+    .venue-details {
+      margin-top: 1.5rem;
+    }
+
+    .hero-image {
+      width: 100%;
+      max-width: 2000px;
+      height: auto;
+      display: block;
+      margin: 0 auto;
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--border-color);
+      transition: all 0.3s ease-in-out;
+      text-decoration: none;
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .hero-image:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .hero-image:hover img {
+      transform: scale(1.05);
+    }
+
+    .hero-image-caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(26, 44, 61, 0.7), rgba(26, 44, 61, 0.5));
+      opacity: 0;
+      transition: all 0.3s ease-in-out;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: var(--white);
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .hero-image:hover .hero-image-caption {
+      opacity: 1;
+    }
+
+    .hero-image-caption .project-category {
+      font-size: 4rem;
+      font-weight: 400;
+      margin-bottom: 0.5rem;
+      color: var(--white);
+      text-transform: none;
+      letter-spacing: 2px;
+    }
+
+    .hero-image-caption .project-name {
+      font-size: 2.5rem;
+      font-weight: 500;
+      color: var(--white);
+      letter-spacing: 1px;
+    }
+
+/* Section Styles */
+    section {
+      max-width: 2000px;
+      margin: auto;
+      padding: 4rem 3rem;
+  background: linear-gradient(
+    135deg,
+    #2C4A5A 0%,
+    #1A2F3D 100%
+  );
+      color: var(--white);
+      text-align: center;
+      position: relative;
+    }
+
+    /* Add subtle overlay for better text readability */
+    section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.2);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Ensure section content stays above overlay */
+    section > * {
+      position: relative;
+      z-index: 2;
+    }
+
+    h2 {
+      font-family: var(--font-secondary);
+      color: var(--header-text);
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 0.5rem;
+      font-size: 4.5rem;
+      margin-top: 3rem;
+      font-weight: 400;
+      letter-spacing: 2px;
+      text-transform: none;
+    }
+
+    p {
+      font-family: 'Perpetua', serif;
+      font-weight: 400;
+      letter-spacing: 1px;
+      text-transform: none;
+      color: var(--white);
+      font-size: 2.2rem;
+      line-height: 1.6;
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 1.5rem;
+    }
+
+    .schedule {
+      font-family: var(--font-secondary);
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 1.5rem 3rem;
+      margin-top: 2rem;
+      font-size: 3rem;
+      color: var(--white);
+      font-weight: 400;
+      max-width: 800px;
+      margin: 2rem auto;
+      text-align: center;
+      letter-spacing: 1px;
+    }
+
+/* Footer Styles */
+    footer {
+      font-family: var(--font-body);
+      text-align: center;
+      padding: 3rem;
+      font-size: 1.6rem;
+      color: var(--white);
+      background: linear-gradient(
+        rgba(26, 44, 61, 0.9),
+        rgba(26, 44, 61, 0.85)
+      ), url('assets/img/Background/2.png') !important;
+      background-size: cover !important;
+      background-position: center !important;
+      background-repeat: no-repeat !important;
+      margin: 0;
+      font-weight: 400;
+      letter-spacing: 2px;
+      position: relative;
+      z-index: 2;
+      min-height: 100px;
+      width: 100%;
+      display: block;
+    }
+
+    /* Add overlay pseudo-element for footer */
+    footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.25);
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Ensure footer content stays above overlay */
+    footer * {
+      position: relative;
+      z-index: 3;
+      color: var(--white) !important;
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
+
+    .copyright {
+      font-family: var(--font-body);
+      font-size: 1.4rem;
+      color: var(--white) !important;
+      margin-top: 1rem;
+      letter-spacing: 1px;
+      font-weight: 400;
+      opacity: 1 !important;
+      visibility: visible !important;
+    }
+
+/* ==========================================================================
+   Portfolio Components
+   ========================================================================== */
+
+/* Portfolio Modal */
+.portfolio-modal .modal-dialog {
+  margin: 0.5rem;
+  max-width: calc(100% - 1rem);
+  height: calc(100% - 1rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.portfolio-modal .modal-content {
+  background: rgba(167, 196, 210, 0.8);
+  border: none;
+  border-radius: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+  font-family: var(--font-secondary);
+  color: var(--text-color);
+  line-height: 1.8;
+  position: relative;
+}
+
+.portfolio-modal .modal-content h2 {
+  font-family: var(--font-secondary);
+  font-size: 3.5rem;
+  line-height: 3.5rem;
+  color: var(--heading-color);
+  margin-bottom: 1.5rem;
+  text-transform: none;
+  text-align: center;
+}
+
+.portfolio-modal .modal-content p {
+  font-family: var(--font-body);
+  font-size: 2.5rem;
+  line-height: 1.6;
+  color: var(--text-color);
+  margin-bottom: 1.5rem;
+  text-align: center;
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.portfolio-modal .modal-content p.item-intro {
+  font-style: italic;
+  margin-bottom: 2rem;
+}
+
+.portfolio-modal .close-modal {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  cursor: pointer;
+  background-color: transparent;
+  z-index: 10;
+}
+
+/* Portfolio Box */
+    .portfolio-box {
+      position: relative;
+      display: block;
+      overflow: hidden;
+      background: transparent;
+      border: 1px solid var(--border-color);
+      transition: all 0.3s ease-in-out;
+      margin-bottom: 2rem;
+    }
+
+    .portfolio-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .portfolio-box .portfolio-box-caption {
+      position: absolute;
+      bottom: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      opacity: 0;
+      color: var(--white);
+      background: linear-gradient(to bottom, rgba(26, 44, 61, 0.9), rgba(26, 44, 61, 0.7));
+      transition: all 0.3s ease-in-out;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .portfolio-box:hover .portfolio-box-caption {
+      opacity: 1;
+    }
+
+    .portfolio-box .portfolio-box-caption .project-category {
+  font-size: 2rem;
+  font-weight: 400;
+  margin-bottom: 0.5rem;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.portfolio-box .portfolio-box-caption .project-name {
+  font-size: 3rem;
+  font-weight: 400;
+  color: var(--white);
+  letter-spacing: 1px;
+  text-transform: none;
+}
+
+    .portfolio-box img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .portfolio-box:hover img {
+      transform: scale(1.05);
+    }
+
+    .portfolio-description {
+      padding: 2rem;
+      font-size: 1.8rem;
+      color: var(--white);
+      line-height: 1.6;
+      text-align: left;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    /* Portfolio Container Styles */
+    .container-fluid.p-0 {
+      background: rgba(255, 255, 0, 0.1) !important; /* very transparent yellow */
+      padding: 2rem 3rem;
+  position: relative;
+  overflow: hidden;
+    }
+
+    .row.g-0 {
+      margin: 0;
+      padding: 0;
+    }
+
+    .col-lg-4, .col-md-6, .col-sm-12 {
+      padding: 1rem;
+    }
+
+/* ==========================================================================
+   Timeline Components
+   ========================================================================== */
+
+/* Timeline Components */
+.timeline-container {
+  padding: 6rem 2rem;
+  width: 100%;
+  max-width: 1800px;
+  margin: 4rem auto;
+  background: transparent;
+  position: relative;
+}
+
+.timeline {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  position: relative;
+  padding: 2rem;
+  width: 100%;
+}
+
+.timeline-item {
+  flex: 0 0 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+  transition: all 0.3s ease;
+}
+
+.portfolio-item {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 4px solid rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.1);
+  margin-bottom: 2.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+  position: relative;
+}
+
+.portfolio-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to bottom, transparent, rgba(26, 44, 61, 0.9));
+  padding: 2rem 1rem;
+  text-align: center;
+  opacity: 0;
+  transition: all 0.3s ease;
+  z-index: 3;
+}
+
+.portfolio-caption-heading {
+  font-family: var(--font-secondary);
+  font-size: 2.8rem;
+  color: var(--white);
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive Timeline Styles */
+@media (max-width: 1600px) {
+  .timeline-container {
+    max-width: 1600px;
+    padding: 5rem 2rem;
+  }
+  .timeline {
+    gap: 2.5rem;
+  }
+  .timeline-item {
+    flex: 0 0 200px;
+  }
+  .portfolio-item {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@media (max-width: 1400px) {
+  .timeline-container {
+    max-width: 1400px;
+    padding: 4rem 1.5rem;
+  }
+  .timeline {
+    gap: 2rem;
+  }
+  .timeline-item {
+    flex: 0 0 180px;
+  }
+  .portfolio-item {
+    width: 180px;
+    height: 180px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .timeline-container {
+    max-width: 1200px;
+    padding: 3rem 1rem;
+  }
+  .timeline {
+    gap: 1.5rem;
+  }
+  .timeline-item {
+    flex: 0 0 160px;
+  }
+  .portfolio-item {
+    width: 160px;
+    height: 160px;
+  }
+}
+
+@media (max-width: 992px) {
+  .timeline-container {
+    max-width: 900px;
+    padding: 2.5rem 1rem;
+  }
+  .timeline {
+    gap: 1.5rem;
+  }
+  .timeline-item {
+    flex: 0 0 calc(33.333% - 1rem);
+  }
+  .portfolio-item {
+    width: 180px;
+    height: 180px;
+  }
+}
+
+@media (max-width: 768px) {
+  .timeline-container {
+    padding: 2rem 1rem;
+  }
+  .timeline {
+    gap: 1rem;
+  }
+  .timeline-item {
+    flex: 0 0 calc(50% - 1rem);
+  }
+  .portfolio-item {
+    width: 160px;
+    height: 160px;
+  }
+  .portfolio-caption-heading {
+    font-size: 2.4rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .timeline-container {
+    padding: 1.5rem 0.5rem;
+  }
+  .timeline {
+    gap: 1rem;
+  }
+  .timeline-item {
+    flex: 0 0 100%;
+  }
+  .portfolio-item {
+    width: 200px;
+    height: 200px;
+  }
+  .portfolio-caption-heading {
+    font-size: 2.6rem;
+  }
+}
+
+/* ==========================================================================
+   iOS and iPhone 11 Optimizations
+   ========================================================================== */
+
+/* iOS specific fixes */
+@supports (-webkit-touch-callout: none) {
+  body {
+    -webkit-overflow-scrolling: touch;
+  }
+
+  header, section, footer, #carousel {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    will-change: transform;
+  }
+}
+
+
+
+/* Additional iOS fixes */
+@supports (-webkit-touch-callout: none) {
+  body {
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Prevent background blur on scroll */
+  header, section, footer, #carousel, .container-fluid.p-0 {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    will-change: transform;
+  }
+
+  /* Ensure smooth scrolling */
+  .container-fluid.p-0 {
+    -webkit-overflow-scrolling: touch;
+    overflow-y: auto;
+  }
+}
+
+/* ==========================================================================
+   Responsive Styles
+   ========================================================================== */
+
+/* Large Screens */
+@media (min-width: 2560px) {
+      header {
+    padding: 5rem 4rem;
+      }
+      header h1 {
+    font-size: 5rem;
+  }
+  header p, .venue-details {
+    font-size: 3.5rem;
+  }
+}
+
+/* Medium Screens */
+@media (max-width: 1400px) {
+  header {
+    padding: 2.5rem 1.5rem;
+  }
+  header h1 {
+        font-size: 3rem;
+      }
+  header p, .venue-details {
+    font-size: 3.5rem;
+  }
+}
+
+/* Small Screens */
+@media (max-width: 1200px) {
+  header {
+    padding: 2rem 1rem;
+  }
+  header h1 {
+        font-size: 2.5rem;
+      }
+  header p, .venue-details {
+    font-size: 3.5rem;
+    }
+      }
+
+/* Mobile Screens */
+@media (max-width: 992px) {
+      header h1 {
+    font-size: 2.2rem;
+  }
+  header p, .venue-details {
+    font-size: 3.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    padding: 1.5rem 1rem;
+  }
+  header h1 {
+    font-size: 4rem;
+    letter-spacing: 3px;
+  }
+  header p, .venue-details {
+    font-size: 3.5rem;
+  }
+  header, section, footer {
+    background-attachment: scroll;
+    background-size: cover;
+    background-position: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+  }
+  
+  /* Add a pseudo-element for better background rendering on mobile */
+  header::before, section::before, footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: inherit;
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+  }
+}
+
+@media (max-width: 576px) {
+  header h1 {
+        font-size: 3rem;
+    letter-spacing: 2px;
+  }
+  header p, .venue-details {
+    font-size: 3.5rem;
+  }
+  header, section, footer {
+    background-attachment: scroll;
+    background-size: cover;
+    background-position: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+  }
+  
+  /* Ensure proper background rendering on iOS */
+  @supports (-webkit-touch-callout: none) {
+    header, section, footer {
+      background-attachment: scroll;
+      background-size: cover;
+      background-position: center;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+    }
+  }
+}
+
+/* Additional iOS fixes */
+@supports (-webkit-touch-callout: none) {
+  body {
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Prevent background blur on scroll */
+  header, section, footer, #carousel {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    will-change: transform;
+  }
+}
+
+/* Portfolio Styles */
+#portfolio {
+  padding: 0;
+  margin: 0;
+  background: linear-gradient(
+    160deg,
+    #2C4A5A 0%,
+    #1A2F3D 100%
+  );
+  color: var(--white);
+  text-align: center;
+  max-height: 100vh;
+  overflow-y: auto;
+}
+
+/* Timeline Responsive Styles */
+    @media (min-width: 2560px) {
+      .timeline-container {
+        padding: 6rem 0;
+      }
+      .timeline-circle {
+        width: 250px;
+        height: 250px;
+      }
+      .timeline-content h3 {
+        font-size: 2rem;
+      }
+      .timeline-content p {
+        font-size: 1.6rem;
+      }
+    }
+
+    @media (max-width: 1200px) {
+      .timeline-container {
+        padding: 3rem 0;
+      }
+      .timeline-circle {
+        width: 150px;
+        height: 150px;
+      }
+      .timeline-content h3 {
+        font-size: 1.3rem;
+      }
+      .timeline-content p {
+        font-size: 1.1rem;
+      }
+    }
+
+    @media (max-width: 992px) {
+      .timeline-circle {
+        width: 130px;
+        height: 130px;
+      }
+      .timeline-content h3 {
+        font-size: 1.2rem;
+      }
+      .timeline-content p {
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .timeline-container {
+        padding: 2rem 0;
+      }
+      .timeline {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 3rem;
+      }
+      .timeline::before {
+        display: none;
+      }
+      .timeline-item {
+        flex: 0 0 calc(50% - 1.5rem);
+        margin-bottom: 2rem;
+      }
+      .timeline-circle {
+        width: 160px;
+        height: 160px;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .timeline-item {
+        flex: 0 0 100%;
+      }
+      .timeline-circle {
+        width: 180px;
+        height: 180px;
+      }
+      .timeline-content h3 {
+        font-size: 1.4rem;
+      }
+      .timeline-content p {
+        font-size: 2.2rem;
+      }
+    }
+
+/* Additional Styles */
+    .title {
+      font-family: 'Perpetua', serif;
+      font-weight: 500;
+      letter-spacing: 2px;
+    }
+
+    .timeline-description {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to bottom, rgba(26, 44, 61, 0.9), rgba(26, 44, 61, 0.7));
+      padding: 2rem;
+      opacity: 0;
+      transition: all 0.3s ease;
+      transform: translateY(20px);
+      pointer-events: none;
+      z-index: 10;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .timeline-circle:hover + .timeline-content .timeline-description {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .custom-paragraph {
+      font-size: 1.8rem;
+      line-height: 1.6;
+      color: var(--white);
+      margin: 0;
+      text-align: center;
+    }
+
+/* Carousel specific styles */
+#carousel {
+  background: linear-gradient(
+    200deg,
+    #2C4A5A 0%,
+    #1A2F3D 100%
+  );
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  overflow: hidden;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+}
+
+/* iOS specific carousel fixes */
+@supports (-webkit-touch-callout: none) {
+  #carousel {
+    background-attachment: scroll !important;
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-perspective: 1000;
+    perspective: 1000;
+  }
+
+  /* Create a fixed background effect for carousel */
+  #carousel::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(rgba(167, 196, 210, 0.2), rgba(167, 196, 210, 0.3)), url('./assets/img/Background/3.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 0;
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+
+  /* Ensure carousel content stays above background */
+  #carousel > * {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+
+
+
+/* Container fluid background */
+.container-fluid.p-0 {
+  background: rgba(255, 255, 0, 0.1) !important; /* very transparent yellow */
+  padding: 2rem 3rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Remove container-fluid from bg-main application */
+body,
+header,
+section,
+footer,
+#carousel {
+  composes: bg-main;
+}
+
+/* Mobile and iOS specific fixes */
+@media (max-width: 768px), 
+(-webkit-min-device-pixel-ratio: 2) {
+  .bg-main {
+    background-attachment: scroll !important;
+  }
+}
+
+/* Ensure footer content is always visible */
+      footer {
+  min-height: 100px;
+  width: 100%;
+  display: block;
+}
+
+footer * {
+  display: block;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+/* iPhone XR/11 Footer Fix */
+
+
+/* Footer Visibility Fixes */
+.site-footer {
+  position: relative;
+  width: 100%;
+  min-height: 100px;
+      z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 1rem;
+}
+
+.footer-content {
+  position: relative;
+  z-index: 20;
+  width: 100%;
+  text-align: center;
+}
+
+.copyright-wrapper {
+  position: relative;
+  z-index: 30;
+  display: block;
+  width: 100%;
+}
+
+.copyright {
+  position: relative;
+  z-index: 40;
+  display: block;
+      font-family: 'Perpetua', serif;
+  font-size: 1.4rem;
+  color: var(--white) !important;
+      margin: 0;
+  padding: 0.5rem;
+      text-align: center;
+  opacity: 1 !important;
+  visibility: visible !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Specific typography styles */
+.masthead h1 {
+  font-family: var(--font-primary);
+  font-weight: 700;
+  font-size: calc(var(--font-size-base) * 3);
+}
+
+.masthead .masthead-subheading {
+  font-family: var(--font-secondary);
+  font-weight: 400;
+}
+
+.section-heading {
+  font-family: var(--font-primary);
+  font-weight: 600;
+}
+
+.timeline-heading h4 {
+  font-family: var(--font-primary);
+  font-weight: 600;
+}
+
+.timeline-body p {
+  font-family: var(--font-secondary);
+  font-weight: 400;
+}
+
+.portfolio-modal .modal-content {
+  font-family: var(--font-secondary);
+}
+
+.portfolio-modal .modal-content h2 {
+  font-family: var(--font-primary);
+  font-weight: 600;
+}
+
+.footer-content,
+.copyright {
+  font-family: var(--font-secondary);
+  font-weight: 400;
+}
+
+/* Mobile typography adjustments */
+@media screen and (max-width: 768px) {
+  :root {
+    --font-size-base: 14px;
+  }
+  
+  .masthead h1 {
+    font-size: calc(var(--font-size-base) * 2.5);
+  }
+}
+
+@media screen and (max-width: 414px) {
+  :root {
+    --font-size-base: 13px;
+  }
+  
+  .masthead h1 {
+    font-size: calc(var(--font-size-base) * 2);
+  }
+  
+  .copyright {
+    font-size: calc(var(--font-size-base) * 0.9);
+  }
+}
