@@ -1336,71 +1336,17 @@
         }
       }
 
-      /* iOS-specific fixes for better rendering and performance */
-      @supports (-webkit-touch-callout: none) {
-        /* iOS-specific fixes - hardware acceleration */
-        body, header, section, footer, .timeline-container, .portfolio-item {
-          -webkit-transform: translate3d(0,0,0);
-          -moz-transform: translate3d(0,0,0);
-          -ms-transform: translate3d(0,0,0);
-          transform: translate3d(0,0,0);
-          -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
-          -webkit-perspective: 1000;
-          perspective: 1000;
-        }
-        
-        /* Fix scrolling on iOS */
-        body {
-          -webkit-overflow-scrolling: touch;
-          cursor: pointer; /* Enables fast click on old iOS */
-        }
-        
-        /* Fix fixed backgrounds on iOS */
-        header, section, footer {
-          background-attachment: scroll !important;
-        }
-        
-        /* Improve tap target sizes for iOS */
-        button, 
-        .portfolio-link,
-        .portfolio-modal .close-modal,
-        .portfolio-item {
-          min-width: 44px;
-          min-height: 44px;
-        }
-        
-        /* Fix font rendering on iOS */
-        h1, h2, h3, h4, h5, h6, p, div {
-          -webkit-text-size-adjust: 100%;
-        }
-        
-        /* Disable hover effects on iOS */
-        @media (hover: none) {
-          .portfolio-item:hover,
-          .carousel-box:hover,
-          .portfolio-modal .close-modal:hover {
-            transform: none !important;
-          }
-          
-          .carousel-box:hover img,
-          .portfolio-item:hover img {
-            transform: none !important;
-          }
-        }
-      }
-      
-      /* GitHub Pages compatibility fixes */
-      img[src^="./"] {
-        /* Ensure relative paths work correctly */
-        image-rendering: -webkit-optimize-contrast;
-        image-rendering: crisp-edges;
-      }
-
       /* iOS-specific solid backgrounds instead of images */
       @supports (-webkit-touch-callout: none) {
         /* Replace background images with solid colors on iOS devices */
         @media screen and (max-width: 844px) { /* iPhone sizes */
+          /* Body solid background */
+          body {
+            background: #1A2F3D !important; /* Darker dusty blue */
+            background-image: none !important;
+            background-attachment: scroll !important;
+          }
+          
           /* Main section solid background */
           section {
             background: #2C4A5A !important; /* Dark dusty blue */
@@ -1408,30 +1354,9 @@
             background-attachment: scroll !important;
           }
           
-          /* Header solid background */
-          header {
-            background: #1A2F3D !important; /* Darker dusty blue */
-            background-image: none !important;
-            background-attachment: scroll !important;
-          }
-          
-          /* Carousel solid background */
-          #carousel {
-            background: #3A5A6A !important; /* Slightly lighter dusty blue */
-            background-image: none !important;
-            background-attachment: scroll !important;
-          }
-          
-          /* Footer solid background */
-          footer {
-            background: #24404D !important; /* Medium dusty blue */
-            background-image: none !important;
-            background-attachment: scroll !important;
-          }
-          
           /* Fix for container-fluid */
           .container-fluid.p-0 {
-            background: #2C4A5A !important;
+            background: #3A5A6A !important; /* Match carousel color */
             background-image: none !important;
             background-attachment: scroll !important;
           }
@@ -1443,6 +1368,18 @@
             visibility: visible !important;
           }
         }
+      }
+      
+      /* Revert yellow background on container-fluid */
+      .container-fluid.p-0 {
+        background: linear-gradient(
+          160deg,
+          #2C4A5A 0%,
+          #1A2F3D 100%
+        ) !important;
+        padding: 2rem 3rem;
+        position: relative;
+        overflow: hidden;
       }
   </style>
 </head>
