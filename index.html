@@ -1336,50 +1336,40 @@
         }
       }
 
-      /* iOS-specific solid backgrounds instead of images */
-      @supports (-webkit-touch-callout: none) {
-        /* Replace background images with solid colors on iOS devices */
-        @media screen and (max-width: 844px) { /* iPhone sizes */
-          /* Body solid background */
-          body {
-            background: #1A2F3D !important; /* Darker dusty blue */
-            background-image: none !important;
-            background-attachment: scroll !important;
-          }
-          
-          /* Main section solid background */
-          section {
-            background: #2C4A5A !important; /* Dark dusty blue */
-            background-image: none !important;
-            background-attachment: scroll !important;
-          }
-          
-          /* Fix for container-fluid */
-          .container-fluid.p-0 {
-            background: #3A5A6A !important; /* Match carousel color */
-            background-image: none !important;
-            background-attachment: scroll !important;
-          }
-          
-          /* Ensure content is visible */
-          section h2, section p, header h1, header h2, header h3, header p,
-          .timeline-item, .portfolio-item, .schedule, footer {
-            opacity: 1 !important;
-            visibility: visible !important;
-          }
+      /* iPhone-specific background overrides - solid color only */
+      @media screen and (max-width: 812px) and (-webkit-min-device-pixel-ratio: 2), 
+             screen and (max-width: 896px) and (-webkit-min-device-pixel-ratio: 2),
+             screen and (max-width: 844px) and (-webkit-min-device-pixel-ratio: 3),
+             screen and (max-width: 926px) and (-webkit-min-device-pixel-ratio: 3) {
+        /* Target iPhone X/XS/11 Pro, iPhone XR/11, iPhone 12/13, iPhone 12/13 Pro Max */
+        body {
+          background-image: none !important;
+          background: #2C4A5A !important;
+        }
+        
+        section {
+          background-image: none !important;
+          background: #2C4A5A !important;
+        }
+        
+        /* Remove margin from hero-image */
+        .hero-image {
+          margin: 0 auto !important;
         }
       }
-      
-      /* Revert yellow background on container-fluid */
-      .container-fluid.p-0 {
-        background: linear-gradient(
-          160deg,
-          #2C4A5A 0%,
-          #1A2F3D 100%
-        ) !important;
-        padding: 2rem 3rem;
-        position: relative;
-        overflow: hidden;
+
+      /* More specific iOS detection */
+      @supports (-webkit-touch-callout: none) {
+        /* Only for iOS devices */
+        body, section {
+          background-image: none !important;
+          background: #2C4A5A !important;
+        }
+        
+        /* Remove margin from hero-image */
+        .hero-image {
+          margin: 0 auto !important;
+        }
       }
   </style>
 </head>
