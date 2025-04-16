@@ -72,6 +72,32 @@
         --text-margin: var(--spacing-md);
         --grid-gap: var(--spacing-lg);
       }
+    @import url('https://fonts.googleapis.com/css2?family=Marcellus+SC&family=Euphoria+Script&family=Playfair+Display:wght@700&display=swap');
+
+/* Define Fallbacks */
+:root {
+  --font-edwardian: 'Edwardian Script ITC', cursive, 'Euphoria Script', cursive;
+  --font-perpetua: 'Perpetua', serif, 'Times New Roman', serif;
+  --font-playfair: 'Playfair Display', serif;
+}
+
+/* General Font Styles */
+body {
+  font-family: var(--font-perpetua);
+}
+
+header h1 {
+  font-family: var(--font-edwardian);
+}
+
+header h2 {
+  font-family: var(--font-playfair);
+}
+
+header p, .venue-details {
+  font-family: var(--font-perpetua);
+}
+
 
       /* Reset all default margins and ensure full width */
       *, *::before, *::after {
