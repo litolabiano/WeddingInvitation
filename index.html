@@ -1406,6 +1406,55 @@
           height: 2rem !important;
           z-index: 2000 !important;
         }
+        
+        /* Fix carousel for iOS devices */
+        #carousel {
+          position: relative !important;
+          overflow: hidden !important;
+          width: 100% !important;
+          max-width: 100% !important;
+          z-index: 1 !important;
+          background-image: none !important;
+          background-color: #2C4A5A !important;
+          padding: 1rem 0.5rem !important;
+          margin: 0 !important;
+        }
+        
+        #carousel .container-fluid.p-0 {
+          width: 100% !important;
+          max-width: 100% !important;
+          padding: 0.5rem !important;
+          background: transparent !important;
+          overflow: hidden !important;
+        }
+        
+        #carousel .row.g-0 {
+          display: flex !important;
+          flex-wrap: wrap !important;
+          margin: 0 !important;
+          width: 100% !important;
+        }
+        
+        #carousel .col-lg-4, 
+        #carousel .col-md-6, 
+        #carousel .col-sm-12 {
+          padding: 0.5rem !important;
+          box-sizing: border-box !important;
+        }
+        
+        .carousel-box {
+          height: auto !important;
+          max-height: 220px !important;
+          margin-bottom: 1rem !important;
+          border: 1px solid rgba(255, 255, 255, 0.2) !important;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
+        }
+        
+        .carousel-box img {
+          height: 100% !important;
+          max-height: 220px !important;
+          object-fit: cover !important;
+        }
       }
   </style>
 </head>
