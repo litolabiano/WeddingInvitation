@@ -30,9 +30,12 @@
 
 /* Portfolio Modal Styles */
 .portfolio-modal .modal-dialog {
-  margin: 10rem;
-  max-width: calc(100% - 20rem);
-  height: calc(100% - 20rem);
+  margin: 0.5rem;
+  max-width: calc(100% - 1rem);
+  height: calc(100% - 1rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .portfolio-modal .modal-content {
