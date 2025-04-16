@@ -1396,6 +1396,54 @@
         image-rendering: -webkit-optimize-contrast;
         image-rendering: crisp-edges;
       }
+
+      /* iOS-specific solid backgrounds instead of images */
+      @supports (-webkit-touch-callout: none) {
+        /* Replace background images with solid colors on iOS devices */
+        @media screen and (max-width: 844px) { /* iPhone sizes */
+          /* Main section solid background */
+          section {
+            background: #2C4A5A !important; /* Dark dusty blue */
+            background-image: none !important;
+            background-attachment: scroll !important;
+          }
+          
+          /* Header solid background */
+          header {
+            background: #1A2F3D !important; /* Darker dusty blue */
+            background-image: none !important;
+            background-attachment: scroll !important;
+          }
+          
+          /* Carousel solid background */
+          #carousel {
+            background: #3A5A6A !important; /* Slightly lighter dusty blue */
+            background-image: none !important;
+            background-attachment: scroll !important;
+          }
+          
+          /* Footer solid background */
+          footer {
+            background: #24404D !important; /* Medium dusty blue */
+            background-image: none !important;
+            background-attachment: scroll !important;
+          }
+          
+          /* Fix for container-fluid */
+          .container-fluid.p-0 {
+            background: #2C4A5A !important;
+            background-image: none !important;
+            background-attachment: scroll !important;
+          }
+          
+          /* Ensure content is visible */
+          section h2, section p, header h1, header h2, header h3, header p,
+          .timeline-item, .portfolio-item, .schedule, footer {
+            opacity: 1 !important;
+            visibility: visible !important;
+          }
+        }
+      }
   </style>
 </head>
 <body>
