@@ -2,9 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="format-detection" content="telephone=no" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>#TINadhana kay TON</title>
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="./assets/img/icon.png" />
@@ -1335,127 +1333,6 @@
           row-gap: 1rem;
         }
       }
-
-      /* iPhone-specific background overrides - solid color only */
-      @media screen and (max-width: 812px) and (-webkit-min-device-pixel-ratio: 2), 
-             screen and (max-width: 896px) and (-webkit-min-device-pixel-ratio: 2),
-             screen and (max-width: 844px) and (-webkit-min-device-pixel-ratio: 3),
-             screen and (max-width: 926px) and (-webkit-min-device-pixel-ratio: 3) {
-        /* Target iPhone X/XS/11 Pro, iPhone XR/11, iPhone 12/13, iPhone 12/13 Pro Max */
-        body {
-          background-image: none !important;
-          background: #2C4A5A !important;
-        }
-        
-        section {
-          background-image: none !important;
-          background: #2C4A5A !important;
-        }
-        
-        /* Remove margin from hero-image */
-        .hero-image {
-          margin: 0 auto !important;
-        }
-      }
-
-      /* More specific iOS detection */
-      @supports (-webkit-touch-callout: none) {
-        /* Only for iOS devices */
-        body, section {
-          background-image: none !important;
-          background: #2C4A5A !important;
-        }
-        
-        /* Remove margin from hero-image */
-        .hero-image {
-          margin: 0 auto !important;
-        }
-        
-        /* Fix portfolio modal for iOS devices */
-        .portfolio-modal {
-          position: fixed !important;
-          top: 0 !important;
-          left: 0 !important;
-          right: 0 !important;
-          bottom: 0 !important;
-          z-index: 1050 !important;
-          overflow-x: hidden !important;
-          overflow-y: auto !important;
-        }
-        
-        .portfolio-modal .modal-dialog {
-          margin: 0.3rem auto !important;
-          max-width: calc(100% - 0.6rem) !important;
-          max-height: calc(100% - 0.6rem) !important;
-          transform: none !important;
-        }
-        
-        .portfolio-modal .modal-content {
-          height: auto !important;
-          min-height: calc(100vh - 1rem) !important;
-          border: none !important;
-          border-radius: 0 !important;
-          box-shadow: none !important;
-        }
-        
-        .portfolio-modal .close-modal {
-          position: absolute !important;
-          top: 0.5rem !important;
-          right: 0.5rem !important;
-          width: 2rem !important;
-          height: 2rem !important;
-          z-index: 2000 !important;
-        }
-        
-        /* Fix carousel for iOS devices */
-        #carousel {
-          position: relative !important;
-          overflow: hidden !important;
-          width: 100% !important;
-          max-width: 100% !important;
-          z-index: 1 !important;
-          background-image: none !important;
-          background-color: #2C4A5A !important;
-          padding: 1rem 0.5rem !important;
-          margin: 0 !important;
-        }
-        
-        #carousel .container-fluid.p-0 {
-          width: 100% !important;
-          max-width: 100% !important;
-          padding: 0.5rem !important;
-          background: transparent !important;
-          overflow: hidden !important;
-        }
-        
-        #carousel .row.g-0 {
-          display: flex !important;
-          flex-wrap: wrap !important;
-          margin: 0 !important;
-          width: 100% !important;
-        }
-        
-        #carousel .col-lg-4, 
-        #carousel .col-md-6, 
-        #carousel .col-sm-12 {
-          padding: 0.5rem !important;
-          box-sizing: border-box !important;
-        }
-        
-        .carousel-box {
-          height: auto !important;
-          max-height: 220px !important;
-          margin-bottom: 1rem !important;
-          border: 1px solid rgba(255, 255, 255, 0.2) !important;
-          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
-        }
-        
-        .carousel-box img {
-          height: 100% !important;
-          max-height: 220px !important;
-          object-fit: cover !important;
-        }
-      }
   </style>
 </head>
 <body>
@@ -1772,19 +1649,5 @@
       });
     });
   </script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // Add empty touchstart listener to elements for iOS fast click
-      var touchElements = document.querySelectorAll('a, button, .portfolio-item, .close-modal');
-      touchElements.forEach(function(el) {
-        el.addEventListener('touchstart', function(){}, {passive: true});
-      });
-      
-      // Fix 300ms delay on iOS
-      FastClick.attach(document.body);
-    });
-  </script>
-  <!-- GitHub compatibility - load FastClick -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js"></script>
 </body>
 </html>
