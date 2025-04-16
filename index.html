@@ -1370,6 +1370,42 @@
         .hero-image {
           margin: 0 auto !important;
         }
+        
+        /* Fix portfolio modal for iOS devices */
+        .portfolio-modal {
+          position: fixed !important;
+          top: 0 !important;
+          left: 0 !important;
+          right: 0 !important;
+          bottom: 0 !important;
+          z-index: 1050 !important;
+          overflow-x: hidden !important;
+          overflow-y: auto !important;
+        }
+        
+        .portfolio-modal .modal-dialog {
+          margin: 0.3rem auto !important;
+          max-width: calc(100% - 0.6rem) !important;
+          max-height: calc(100% - 0.6rem) !important;
+          transform: none !important;
+        }
+        
+        .portfolio-modal .modal-content {
+          height: auto !important;
+          min-height: calc(100vh - 1rem) !important;
+          border: none !important;
+          border-radius: 0 !important;
+          box-shadow: none !important;
+        }
+        
+        .portfolio-modal .close-modal {
+          position: absolute !important;
+          top: 0.5rem !important;
+          right: 0.5rem !important;
+          width: 2rem !important;
+          height: 2rem !important;
+          z-index: 2000 !important;
+        }
       }
   </style>
 </head>
