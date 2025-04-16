@@ -418,6 +418,7 @@ footer, .copyright {
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 1050; /* Ensure modal is on top */
 }
 
 .portfolio-modal .modal-content {
@@ -434,6 +435,7 @@ footer, .copyright {
   color: var(--text-color);
   line-height: 1.8;
   position: relative;
+  z-index: 1060; /* Ensure content is above dialog */
 }
 
 .portfolio-modal .modal-content h2 {
@@ -1056,7 +1058,7 @@ footer, .copyright {
       text-align: center;
     }
 
-/* Carousel specific styles */
+/* Carousel Styles */
 #carousel {
   background: linear-gradient(
     200deg,
@@ -1321,5 +1323,38 @@ footer * {
     max-height: 100%;
     overflow: hidden;
   }
+}
+
+/* Apply Carousel Styles to Section */
+section {
+  background: linear-gradient(
+    200deg,
+    #2C4A5A 0%,
+    #1A2F3D 100%
+  );
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  overflow: hidden;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent) transparent;
+}
+
+/* Custom scrollbar styling for section */
+section::-webkit-scrollbar {
+  width: 6px;
+}
+
+section::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+section::-webkit-scrollbar-thumb {
+  background-color: var(--accent);
+  border-radius: 3px;
 }
   
